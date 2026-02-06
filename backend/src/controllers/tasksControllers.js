@@ -2,7 +2,7 @@ import Task from "../models/Task.js";
 
 export const getAllTasks = async (req, res) => {
   try {
-    const tasks = await Task.find();
+    const tasks = await Task.find().sort({ createAt: -1 }); //hoặc viết là des hoặc asc
     res.status(200).json(tasks);
   } catch (error) {
     console.error("Lỗi khi gọi getAllTasks:", error);
